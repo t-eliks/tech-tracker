@@ -5,11 +5,22 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CarIdComponent } from "./car-id/car-id.component";
+import { MapComponent } from "./map/map.component";
+
+import { AgmCoreModule, GoogleMapsAPIWrapper } from "@agm/core";
+import { PickLocationPageComponent } from './pick-location-page/pick-location-page.component';
 
 @NgModule({
-  declarations: [AppComponent, CarIdComponent],
-  imports: [FormsModule, BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, CarIdComponent, MapComponent, PickLocationPageComponent],
+  imports: [
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBqT_Nvr67nTnJYPYJ5x97Ian-jS68-tf4"
+    })
+  ],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,7 @@
+<agm-map (mapReady)="onMapReady($event)" [latitude]="lat" [longitude]="lng">
+  <agm-marker
+    [latitude]="markerLat"
+    [longitude]="markerLng"
+    [markerDraggable]="isMarkerDraggable"
+  ></agm-marker>
+</agm-map>
