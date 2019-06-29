@@ -1,5 +1,15 @@
-<!-- <app-car-id></app-car-id> -->
-<!-- <app-pick-location-page></app-pick-location-page> -->
-<app-tech-tracker-page></app-tech-tracker-page>
+<app-car-id
+  *ngIf="!car_number"
+  (carNumberEntered)="onCarNumberEntered($event)"
+></app-car-id>
+<app-pick-location-page
+  *ngIf="car_number && (!currentLat || !currentLng)"
+  (locationPicked)="onLocationPicked($event)"
+></app-pick-location-page>
+<app-tech-tracker-page
+  *ngIf="currentLat || currentLng"
+  [longitude]="currentLng"
+  [latitude]="currentLat"
+></app-tech-tracker-page>
 
 <router-outlet></router-outlet>

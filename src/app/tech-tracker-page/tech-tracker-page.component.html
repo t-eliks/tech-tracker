@@ -5,7 +5,12 @@
         <h3>
           Tech. pagalbos preliminarus atvykimo laikas 00:00
         </h3>
-        <app-map></app-map>
+        <app-map
+          (mapInitialized)="onMapInitialized()"
+          [longitude]="lng"
+          [latitude]="lat"
+          #map
+        ></app-map>
         <div>
           <span>Pas Jus atvažiuoja: Vardenis Pavardenis +37060011222</span>
           <button class="btn btn-primary">

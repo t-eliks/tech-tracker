@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-car-id",
@@ -8,11 +8,13 @@ import { Component, OnInit } from "@angular/core";
 export class CarIdComponent implements OnInit {
   car_number = "";
 
+  @Output() carNumberEntered = new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit() {}
 
   onClickContinue() {
-    console.log(this.car_number);
+    this.carNumberEntered.emit(this.car_number);
   }
 }
