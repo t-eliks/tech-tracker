@@ -3,5 +3,6 @@
     [latitude]="markerLat"
     [longitude]="markerLng"
     [markerDraggable]="isMarkerDraggable"
+    (dragEnd)="onMarkerMoved($event)"
   ></agm-marker>
 </agm-map>
