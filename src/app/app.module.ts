@@ -9,7 +9,6 @@ import { PickLocationPageComponent } from "./pick-location-page/pick-location-pa
 import { MapComponent } from "./map/map.component";
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from "@agm/core";
-
 @NgModule({
   declarations: [
     AppComponent,

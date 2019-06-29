@@ -13,7 +13,14 @@ export class PickLocationPageComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.currentLat = pos.coords.latitude;
+        this.currentLng = pos.coords.longitude;
+      });
+    }
+  }
 
   onMarkerMoved(markerCoordinates: { lat: number; lng: number }) {
     this.currentLat = markerCoordinates.lat;

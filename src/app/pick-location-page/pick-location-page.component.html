@@ -6,6 +6,10 @@
         kuo tikslesnė, įjunkite GPS.
       </h3>
       <app-map
+        [latitude]="currentLat"
+        [longitude]="currentLng"
+        [markerLatitude]="currentLat"
+        [markerLongitude]="currentLng"
         (markerMoved)="onMarkerMoved($event)"
         [isMarkerDraggable]="true"
       ></app-map>

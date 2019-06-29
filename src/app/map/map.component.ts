@@ -8,11 +8,11 @@ import {} from "googlemaps";
   styleUrls: ["./map.component.css"]
 })
 export class MapComponent implements OnInit {
-  lat = 0;
-  lng = 0;
+  @Input("latitude") lat = 0;
+  @Input("longitude") lng = 0;
 
-  markerLat: number;
-  markerLng: number;
+  @Input("markerLatitude") markerLat = 0;
+  @Input("markerLongitude") markerLng = 0;
 
   @Input() isMarkerDraggable = false;
   @Output() markerMoved = new EventEmitter<{ lng: number; lat: number }>();
@@ -21,17 +21,7 @@ export class MapComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(pos => {
-        this.lat = pos.coords.latitude;
-        this.lng = pos.coords.longitude;
-
-        this.markerLat = this.lat;
-        this.markerLng = this.lng;
-      });
-    }
-  }
+  ngOnInit() {}
 
   onMapReady(map: google.maps.Map) {
     this.map = map;
