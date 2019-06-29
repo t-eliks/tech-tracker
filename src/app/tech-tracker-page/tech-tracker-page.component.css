@@ -1,0 +1,12 @@
+button {
+  margin: 5px;
+}
+
+a {
+  display: block;
+  margin: 15px;
+}
+
+.links {
+  align-items: left;
+}

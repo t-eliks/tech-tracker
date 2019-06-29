@@ -9,12 +9,14 @@ import { PickLocationPageComponent } from "./pick-location-page/pick-location-pa
 import { MapComponent } from "./map/map.component";
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from "@agm/core";
+import { TechTrackerPageComponent } from './tech-tracker-page/tech-tracker-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     CarIdComponent,
     MapComponent,
-    PickLocationPageComponent
+    PickLocationPageComponent,
+    TechTrackerPageComponent
   ],
   imports: [
     FormsModule,
