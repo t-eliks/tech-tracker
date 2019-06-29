@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-car-id',
-  templateUrl: './car-id.component.html',
-  styleUrls: ['./car-id.component.css']
+  selector: "app-car-id",
+  templateUrl: "./car-id.component.html",
+  styleUrls: ["./car-id.component.css"]
 })
 export class CarIdComponent implements OnInit {
+  car_number = "";
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onClickContinue() {
+    console.log(this.car_number);
   }
-
 }

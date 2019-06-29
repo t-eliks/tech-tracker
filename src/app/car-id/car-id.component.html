@@ -2,8 +2,14 @@
   <div class="row content">
     <div class="col-sm-6 mx-auto text-center">
       <h1>Įveskite mašinos nr.</h1>
-      <input class="form-control" placeholder="Mašinos nr." />
-      <button class="btn btn-success">Toliau</button>
+      <input
+        [(ngModel)]="car_number"
+        class="form-control"
+        placeholder="Mašinos nr."
+      />
+      <button (click)="onClickContinue()" class="btn btn-success">
+        Toliau
+      </button>
       <a href="#">Reikia pagalbos?</a>
     </div>
   </div>
