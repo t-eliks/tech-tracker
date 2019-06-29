@@ -1,0 +1,17 @@
+h1 {
+  margin: 30px;
+}
+
+input {
+  margin: 0 auto;
+  width: 300px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+a {
+  display: block;
+  margin: 5px;
+}
