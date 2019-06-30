@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { MouseEvent, MapsAPILoader } from "@agm/core";
 import {} from "googlemaps"; //fix namespace not found error
 import { Coordinates } from "../types/coordinates.type";
@@ -8,7 +8,7 @@ import { Coordinates } from "../types/coordinates.type";
   templateUrl: "./map.component.html",
   styleUrls: ["./map.component.css"]
 })
-export class MapComponent implements OnInit {
+export class MapComponent {
   @Input("latitude") lat = 0;
   @Input("longitude") lng = 0;
 
@@ -23,8 +23,6 @@ export class MapComponent implements OnInit {
   private map: google.maps.Map;
 
   constructor(private mapsApiLoader: MapsAPILoader) {}
-
-  ngOnInit() {}
 
   onMapReady(map: google.maps.Map) {
     this.map = map;

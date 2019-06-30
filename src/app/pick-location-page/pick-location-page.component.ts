@@ -11,8 +11,6 @@ export class PickLocationPageComponent implements OnInit {
 
   @Output() locationPicked = new EventEmitter<Coordinates>();
 
-  constructor() {}
-
   ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {

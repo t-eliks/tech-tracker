@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output } from "@angular/core";
+import { Component, ViewChild, Input } from "@angular/core";
 import { MapComponent } from "../map/map.component";
 
 @Component({
@@ -6,17 +6,13 @@ import { MapComponent } from "../map/map.component";
   templateUrl: "./tech-tracker-page.component.html",
   styleUrls: ["./tech-tracker-page.component.css"]
 })
-export class TechTrackerPageComponent implements OnInit {
+export class TechTrackerPageComponent {
   @Input("longitude") lng: number;
   @Input("latitude") lat: number;
 
-  formattedArrivalTime: string;
+  private formattedArrivalTime: string;
 
   @ViewChild(MapComponent, { static: false }) map: MapComponent;
-
-  constructor() {}
-
-  ngOnInit() {}
 
   onMapInitialized() {
     this.map
