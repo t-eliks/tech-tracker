@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Coordinates } from "../types/coordinates.type";
 
 @Component({
   selector: "app-pick-location-page",
@@ -6,28 +7,30 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
   styleUrls: ["./pick-location-page.component.css"]
 })
 export class PickLocationPageComponent implements OnInit {
-  currentLat = 0;
-  currentLng = 0;
+  currentCoordinates: Coordinates = { lat: 0, lng: 0 };
 
-  @Output() locationPicked = new EventEmitter<{ lat: number; lng: number }>();
+  @Output() locationPicked = new EventEmitter<Coordinates>();
 
   constructor() {}
 
   ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
-        this.currentLat = pos.coords.latitude;
-        this.currentLng = pos.coords.longitude;
+        this.currentCoordinates.lat = pos.coords.latitude;
+        this.currentCoordinates.lng = pos.coords.longitude;
       });
     }
   }
 
-  onMarkerMoved(markerCoordinates: { lat: number; lng: number }) {
-    this.currentLat = markerCoordinates.lat;
-    this.currentLng = markerCoordinates.lng;
+  onMarkerMoved(markerCoordinates: Coordinates) {
+    this.currentCoordinates.lat = markerCoordinates.lat;
+    this.currentCoordinates.lng = markerCoordinates.lng;
   }
 
   onContinueClicked() {
-    this.locationPicked.emit({ lat: this.currentLat, lng: this.currentLng });
+    this.locationPicked.emit({
+      lat: this.currentCoordinates.lat,
+      lng: this.currentCoordinates.lng
+    });
   }
 }

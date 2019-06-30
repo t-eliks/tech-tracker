@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Coordinates } from "./types/coordinates.type";
 
 @Component({
   selector: "app-root",
@@ -8,17 +9,16 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "tech-tracker";
 
-  car_number = "";
+  car_number: string;
 
-  currentLat = 0;
-  currentLng = 0;
+  currentCoordinates: Coordinates = { lat: 0, lng: 0 };
 
   onCarNumberEntered(car_number: string) {
     this.car_number = car_number;
   }
 
-  onLocationPicked(point: { lat: number; lng: number }) {
-    this.currentLat = point.lat;
-    this.currentLng = point.lng;
+  onLocationPicked(point: Coordinates) {
+    this.currentCoordinates.lat = point.lat;
+    this.currentCoordinates.lng = point.lng;
   }
 }

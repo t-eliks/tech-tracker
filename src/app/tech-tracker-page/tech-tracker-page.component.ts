@@ -10,7 +10,7 @@ export class TechTrackerPageComponent implements OnInit {
   @Input("longitude") lng: number;
   @Input("latitude") lat: number;
 
-  @Output() formattedArrivalTime: string;
+  formattedArrivalTime: string;
 
   @ViewChild(MapComponent, { static: false }) map: MapComponent;
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { MouseEvent, MapsAPILoader } from "@agm/core";
 import {} from "googlemaps"; //fix namespace not found error
+import { Coordinates } from "../types/coordinates.type";
 
 @Component({
   selector: "app-map",
@@ -16,8 +17,8 @@ export class MapComponent implements OnInit {
 
   @Input() isMarkerDraggable = false;
 
-  @Output() mapInitialized = new EventEmitter<{}>();
-  @Output() markerMoved = new EventEmitter<{ lng: number; lat: number }>();
+  @Output() mapInitialized = new EventEmitter();
+  @Output() markerMoved = new EventEmitter<Coordinates>();
 
   private map: google.maps.Map;
 
@@ -27,7 +28,7 @@ export class MapComponent implements OnInit {
 
   onMapReady(map: google.maps.Map) {
     this.map = map;
-    this.mapInitialized.emit({});
+    this.mapInitialized.emit();
   }
 
   onMarkerMoved($event: MouseEvent) {
@@ -38,7 +39,7 @@ export class MapComponent implements OnInit {
   }
 
   animateRouteToCurrentPosition(
-    startPoint: { lat: number; lng: number },
+    startPoint: Coordinates,
     intervalMilliseconds: number
   ): Promise<number> {
     return new Promise((resolve, reject) => {
@@ -55,7 +56,7 @@ export class MapComponent implements OnInit {
   private setRouteToCurrentPosition(startPoint: {
     lat: number;
     lng: number;
-  }): Promise<{ lat: number; lng: number }[]> {
+  }): Promise<Coordinates[]> {
     return new Promise((resolve, reject) => {
       this.mapsApiLoader
         .load()
@@ -74,7 +75,7 @@ export class MapComponent implements OnInit {
           directionsService.route(request, (result, status) => {
             if (status === google.maps.DirectionsStatus.OK) {
               directionsRenderer.setDirections(result);
-              let route = [];
+              const route = [];
               result.routes[0].overview_path.forEach(point => {
                 route.push({ lat: point.lat(), lng: point.lng() });
               });
@@ -89,7 +90,7 @@ export class MapComponent implements OnInit {
   }
 
   private animateRoute(
-    route: { lng: number; lat: number }[],
+    route: Coordinates[],
     intervalMilliseconds: number
   ): number {
     if (route) {
