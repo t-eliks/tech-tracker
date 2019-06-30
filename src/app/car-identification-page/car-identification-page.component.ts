@@ -6,7 +6,7 @@ import { Component, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./car-identification-page.component.css"]
 })
 export class CarIdentificationPageComponent {
-  car_number = "";
+  car_number: string;
 
   @Output() carNumberEntered = new EventEmitter<string>();
 
