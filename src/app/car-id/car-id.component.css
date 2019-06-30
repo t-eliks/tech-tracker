@@ -1,5 +1,5 @@
 h1 {
-  margin: 30px;
+  margin: 40px;
 }
 
 input {
@@ -8,10 +8,10 @@ input {
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 a {
   display: block;
-  margin: 5px;
+  margin: 10px;
 }

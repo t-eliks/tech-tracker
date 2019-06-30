@@ -1,15 +1,24 @@
-<app-car-id
-  *ngIf="!car_number"
-  (carNumberEntered)="onCarNumberEntered($event)"
-></app-car-id>
-<app-pick-location-page
-  *ngIf="car_number && (!currentLat || !currentLng)"
-  (locationPicked)="onLocationPicked($event)"
-></app-pick-location-page>
-<app-tech-tracker-page
-  *ngIf="currentLat || currentLng"
-  [longitude]="currentLng"
-  [latitude]="currentLat"
-></app-tech-tracker-page>
+<div class="container">
+  <div class="row content">
+    <div *ngIf="!car_number" class="col-sm-6 mx-auto text-center">
+      <app-car-id (carNumberEntered)="onCarNumberEntered($event)"></app-car-id>
+    </div>
+    <div class="col-sm-9 mx-auto">
+      <div
+        *ngIf="car_number && (!currentLat || !currentLng)"
+        class="text-center"
+      >
+        <app-pick-location-page
+          (locationPicked)="onLocationPicked($event)"
+        ></app-pick-location-page>
+      </div>
+      <app-tech-tracker-page
+        *ngIf="currentLat || currentLng"
+        [longitude]="currentLng"
+        [latitude]="currentLat"
+      ></app-tech-tracker-page>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
