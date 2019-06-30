@@ -36,11 +36,9 @@ export class TechTrackerPageComponent implements OnInit {
 
   private setFormattedEstimatedArrivalTime(arrivalTime: Date) {
     if (arrivalTime) {
-      const hours = arrivalTime.getHours();
-      const minutes = arrivalTime.getMinutes();
-      this.formattedArrivalTime = `${this.addZero(hours)}:${this.addZero(
-        minutes
-      )}`;
+      this.formattedArrivalTime = `${this.addZero(
+        arrivalTime.getHours()
+      )}:${this.addZero(arrivalTime.getMinutes())}`;
     } else this.formattedArrivalTime = "00:00";
   }
 

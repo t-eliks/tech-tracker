@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { MouseEvent, MapsAPILoader } from "@agm/core";
-import {} from "googlemaps";
+import {} from "googlemaps"; //fix namespace not found error
 
 @Component({
   selector: "app-map",
