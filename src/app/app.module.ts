@@ -23,7 +23,7 @@ import { TechTrackerPageComponent } from "./tech-tracker-page/tech-tracker-page.
     BrowserModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyBqT_Nvr67nTnJYPYJ5x97Ian-jS68-tf4"
+      apiKey: "AIzaSyBqT_Nvr67nTnJYPYJ5x97Ian-jS68-tf4" //Hardcoded for development purposes. Please don't abuse :)
     })
   ],
   providers: [],
