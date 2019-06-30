@@ -80,7 +80,7 @@ export class MapComponent implements OnInit {
                 route.push({ lat: point.lat(), lng: point.lng() });
               });
               resolve(route);
-            }
+            } else reject();
           });
         })
         .catch(() => {
