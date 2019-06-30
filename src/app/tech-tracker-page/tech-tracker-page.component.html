@@ -3,7 +3,8 @@
     <div class="col-sm-9 mx-auto">
       <div class="text-center">
         <h3>
-          Tech. pagalbos preliminarus atvykimo laikas 00:00
+          Tech. pagalbos preliminarus atvykimo laikas
+          {{ formattedArrivalTime }}
         </h3>
         <app-map
           (mapInitialized)="onMapInitialized()"

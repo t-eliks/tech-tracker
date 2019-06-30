@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, Output } from "@angular/core";
 import { MapComponent } from "../map/map.component";
 
 @Component({
@@ -6,21 +6,45 @@ import { MapComponent } from "../map/map.component";
   templateUrl: "./tech-tracker-page.component.html",
   styleUrls: ["./tech-tracker-page.component.css"]
 })
-export class TechTrackerPageComponent implements AfterViewInit {
+export class TechTrackerPageComponent implements OnInit {
   @Input("longitude") lng: number;
   @Input("latitude") lat: number;
+
+  @Output() formattedArrivalTime: string;
 
   @ViewChild(MapComponent, { static: false }) map: MapComponent;
 
   constructor() {}
 
-  ngAfterViewInit() {}
+  ngOnInit() {}
 
   onMapInitialized() {
-    this.map.setRouteToCurrentPosition({
-      lat: this.lat - Math.random() / 50,
-      lng: this.lng - Math.random() / 50
-    });
-    this.map.animateRoute();
+    this.map
+      .animateRouteToCurrentPosition(
+        {
+          lat: this.lat - Math.random() / 10,
+          lng: this.lng - Math.random() / 10
+        },
+        1000
+      )
+      .then(estimatedMilliseconds => {
+        this.setFormattedEstimatedArrivalTime(
+          new Date(new Date().getTime() + estimatedMilliseconds)
+        );
+      });
+  }
+
+  private setFormattedEstimatedArrivalTime(arrivalTime: Date) {
+    if (arrivalTime) {
+      const hours = arrivalTime.getHours();
+      const minutes = arrivalTime.getMinutes();
+      this.formattedArrivalTime = `${this.addZero(hours)}:${this.addZero(
+        minutes
+      )}`;
+    } else this.formattedArrivalTime = "00:00";
+  }
+
+  private addZero(number: number): string {
+    return `${number < 0 ? `0${number}` : number}`;
   }
 }
