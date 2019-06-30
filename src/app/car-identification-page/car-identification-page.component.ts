@@ -14,7 +14,7 @@ export class CarIdentificationPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClickContinue() {
+  onSubmit() {
     this.carNumberEntered.emit(this.car_number);
   }
 }

@@ -6,11 +6,10 @@
       ></app-car-identification-page>
     </div>
     <div class="col-sm-9 mx-auto">
-      <div *ngIf="car_number && !currentCoordinates" class="text-center">
-        <app-pick-location-page
-          (locationPicked)="onLocationPicked($event)"
-        ></app-pick-location-page>
-      </div>
+      <app-pick-location-page
+        *ngIf="car_number && !currentCoordinates"
+        (locationPicked)="onLocationPicked($event)"
+      ></app-pick-location-page>
       <app-tech-tracker-page
         *ngIf="currentCoordinates"
         [longitude]="currentCoordinates.lng"

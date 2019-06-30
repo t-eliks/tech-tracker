@@ -43,6 +43,6 @@ export class TechTrackerPageComponent implements OnInit {
   }
 
   private addZero(number: number): string {
-    return `${number < 0 ? `0${number}` : number}`;
+    return `${number < 10 ? `0${number}` : number}`;
   }
 }

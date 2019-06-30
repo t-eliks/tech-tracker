@@ -1,10 +1,14 @@
 <h1>Įveskite mašinos nr.</h1>
-<input
-  [(ngModel)]="car_number"
-  class="form-control"
-  placeholder="Mašinos nr."
-/>
-<button (click)="onClickContinue()" class="btn btn-success">
-  Toliau
-</button>
+<form ngNativeValidate (ngSubmit)="onSubmit()">
+  <input
+    [(ngModel)]="car_number"
+    name="car_number"
+    required
+    class="form-control"
+    placeholder="Mašinos nr."
+  />
+  <button type="submit" class="btn btn-success">
+    Toliau
+  </button>
+</form>
 <a href="#">Reikia pagalbos?</a>
