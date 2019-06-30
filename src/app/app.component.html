@@ -1,21 +1,20 @@
 <div class="container">
   <div class="row content">
     <div *ngIf="!car_number" class="col-sm-6 mx-auto text-center">
-      <app-car-id (carNumberEntered)="onCarNumberEntered($event)"></app-car-id>
+      <app-car-identification-page
+        (carNumberEntered)="onCarNumberEntered($event)"
+      ></app-car-identification-page>
     </div>
     <div class="col-sm-9 mx-auto">
-      <div
-        *ngIf="car_number && (!currentLat || !currentLng)"
-        class="text-center"
-      >
+      <div *ngIf="car_number && !currentCoordinates" class="text-center">
         <app-pick-location-page
           (locationPicked)="onLocationPicked($event)"
         ></app-pick-location-page>
       </div>
       <app-tech-tracker-page
-        *ngIf="currentLat || currentLng"
-        [longitude]="currentLng"
-        [latitude]="currentLat"
+        *ngIf="currentCoordinates"
+        [longitude]="currentCoordinates.lng"
+        [latitude]="currentCoordinates.lat"
       ></app-tech-tracker-page>
     </div>
   </div>

@@ -11,14 +11,13 @@ export class AppComponent {
 
   car_number: string;
 
-  currentCoordinates: Coordinates = { lat: 0, lng: 0 };
+  currentCoordinates: Coordinates;
 
   onCarNumberEntered(car_number: string) {
     this.car_number = car_number;
   }
 
   onLocationPicked(point: Coordinates) {
-    this.currentCoordinates.lat = point.lat;
-    this.currentCoordinates.lng = point.lng;
+    this.currentCoordinates = point;
   }
 }
