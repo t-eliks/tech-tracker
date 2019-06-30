@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h3>
+    Tech. pagalbos preliminarus atvykimo laikas
+    {{ formattedArrivalTime }}
+  </h3>
+  <app-map
+    (mapInitialized)="onMapInitialized()"
+    [longitude]="lng"
+    [latitude]="lat"
+    #map
+  ></app-map>
+  <div>
+    <span>Pas Jus atvažiuoja: Vardenis Pavardenis +37060011222</span>
+    <button class="btn btn-primary">
+      Skambinti
+    </button>
+  </div>
+  <hr />
+</div>
+<a href="#">Linkas 1</a>
+<a href="#">Linkas 2</a>

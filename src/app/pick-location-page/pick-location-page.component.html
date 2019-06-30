@@ -1,0 +1,17 @@
+<h3>
+  Pasirinkite savo būvimo vietą, tempkite "žymeklį". Kad jūsų vieta būtų kuo
+  tikslesnė, įjunkite GPS.
+</h3>
+<app-map
+  [latitude]="currentCoordinates.lat"
+  [longitude]="currentCoordinates.lng"
+  [markerLatitude]="currentCoordinates.lat"
+  [markerLongitude]="currentCoordinates.lng"
+  (markerMoved)="onMarkerMoved($event)"
+  [isMarkerDraggable]="true"
+></app-map>
+<div class="text-center">
+  <button class="btn btn-success" (click)="onContinueClicked()">
+    Toliau
+  </button>
+</div>
