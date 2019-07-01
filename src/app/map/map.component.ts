@@ -3,17 +3,23 @@ import { MouseEvent, MapsAPILoader } from "@agm/core";
 import {} from "googlemaps"; //fix namespace not found error
 import { Coordinates } from "../types/coordinates.type";
 
+const DEFAULT_LAT = 0;
+const DEFAULT_LNG = 0;
+
+const DEFAULT_MARKER_LAT = 0;
+const DEFAULT_MARKER_LNG = 0;
+
 @Component({
   selector: "app-map",
   templateUrl: "./map.component.html",
   styleUrls: ["./map.component.css"]
 })
 export class MapComponent {
-  @Input("latitude") lat = 0;
-  @Input("longitude") lng = 0;
+  @Input("latitude") lat = DEFAULT_LAT;
+  @Input("longitude") lng = DEFAULT_LNG;
 
-  @Input("markerLatitude") markerLat = 0;
-  @Input("markerLongitude") markerLng = 0;
+  @Input("markerLatitude") markerLat = DEFAULT_MARKER_LAT;
+  @Input("markerLongitude") markerLng = DEFAULT_MARKER_LNG;
 
   @Input() isMarkerDraggable = false;
 
